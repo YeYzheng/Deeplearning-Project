@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>Upload File</title>
+<h1>猫狗识别</h1>
+<form method="POST" enctype="multipart/form-data">
+     {{ form.hidden_tag() }}
+     {{ form.photo }}
+     {% for error in form.photo.errors %}
+         <span style="color: red;">{{ error }}</span>
+     {% endfor %}
+     {{ form.submit }}
+</form>
+
+{% if file_url %}
+<br><img src="{{ file_url }}">
+<h1>{{predict_str}}</h1>
+{% endif %}
